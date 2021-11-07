@@ -2,7 +2,7 @@
 ## Project Description
 This project is made for the "Introduction to Data Science" subject as a mandatory project to finish the class successfully.
 
-Subject: Why is electricity so expensive? NORDPOOL
+Subject: Why is electricity so expensive? NORDPOOL  
 Reason: The electricity prices have tripled in recent months.
 
 ### Team members
