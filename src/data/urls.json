@@ -1,0 +1,20 @@
+{
+  "nordpooldata": [
+    {
+      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/elspot-flow-ee_2021_hourly.xls",
+      "filename": "raw/elspot-flow-ee_2021_hourly.xls"
+    },
+    {
+      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/elspot-flow-ee_2019_hourly.xls",
+      "filename": "raw/elspot-flow-ee_2019_hourly.xls"
+    },
+    {
+      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2021_hourly.xls",
+      "filename": "raw/consumption-per-country_2021_hourly.xlsx"
+    },
+    {
+      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2019_hourly.xls",
+      "filename": "raw/consumption-per-country_2019_hourly.xls"
+    }
+  ]
+}
