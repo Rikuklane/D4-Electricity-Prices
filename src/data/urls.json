@@ -1,20 +1,62 @@
 {
   "nordpooldata": [
     {
-      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/elspot-flow-ee_2021_hourly.xls",
-      "filename": "raw/elspot-flow-ee_2021_hourly.xls"
+      "feature": "elspot_price",
+      "files": [
+        {
+          "filename": "elspot-prices_2016_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2016_hourly_eur.xls"
+        },
+        {
+          "filename": "elspot-prices_2017_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2017_hourly_eur.xls"
+        },
+        {
+          "filename": "elspot-prices_2018_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2018_hourly_eur.xls"
+        },
+        {
+          "filename": "elspot-prices_2019_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2019_hourly_eur.xls"
+        },
+        {
+          "filename": "elspot-prices_2020_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2020_hourly_eur.xls"
+        },
+        {
+          "filename": "elspot-prices_2021_hourly_eur.xls",
+          "url": "https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_2021_hourly_eur.xls"
+        }
+      ]
     },
     {
-      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/elspot-flow-ee_2019_hourly.xls",
-      "filename": "raw/elspot-flow-ee_2019_hourly.xls"
-    },
-    {
-      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2021_hourly.xls",
-      "filename": "raw/consumption-per-country_2021_hourly.xlsx"
-    },
-    {
-      "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2019_hourly.xls",
-      "filename": "raw/consumption-per-country_2019_hourly.xls"
+      "feature": "consumption",
+      "files": [
+        {
+          "filename": "consumption-per-country_2016_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2016_hourly.xls"
+        },
+        {
+          "filename": "consumption-per-country_2017_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2017_hourly.xls"
+        },
+        {
+          "filename": "consumption-per-country_2018_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2018_hourly.xls"
+        },
+        {
+          "filename": "consumption-per-country_2019_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2019_hourly.xls"
+        },
+        {
+          "filename": "consumption-per-country_2020_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2020_hourly.xls"
+        },
+        {
+          "filename": "consumption-per-country_2021_hourly.xls",
+          "url": "https://www.nordpoolgroup.com/4a742e/globalassets/marketdata-excel-files/consumption-per-country_2021_hourly.xls"
+        }
+      ]
     }
   ]
 }

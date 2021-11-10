@@ -9,3 +9,4 @@ dependencies:
  - make
  - pandas
  - openpyxl
+ - bs4
