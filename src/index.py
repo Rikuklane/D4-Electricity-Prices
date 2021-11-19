@@ -1,24 +1,39 @@
 from src.data.delete_data import DataDeleter
+from src.data.url_writer import UrlWriter
+from src.data.download_data import DataDownloader
+from src.features.process_nordpool import NordpoolDataProcessor
+
+
+def user_interaction(question: str, command):
+    """
+    Leaving the input fields empty is also counted as a yes
+    :param question: the question to ask the user
+    :param command: the command that should be ran if the answer is "yes"
+    """
+    while True:
+        print(f"{question} ( Y / N )")
+        answer = input().lower()
+        if answer == "y" or answer == "":
+            command()
+            break
+        elif answer == "n":
+            break
 
 
 # This method is not ready to be used yet (can only delete data currently)
 if __name__ == '__main__':
     """
-    This method is going to be the so called CLI to setup project
-    Leaving the input fields empty is also counted as a yes
+    This is the CLI for the project setup
     """
-    answer_choice = "( Y / N )"
-
     # deleting data
-    while True:
-        print(f"Do you wish to delete all the previous data? {answer_choice}")
-        delete = input().lower()
-        if delete == "y" or "":
-            DataDeleter.clean_data()
-            break
-        elif delete == "n":
-            break
-
+    user_interaction("Clear all data?",
+                     DataDeleter().clean_data)
     # writing urls into json
+    user_interaction("Write to be fetched urls to json file?",
+                     UrlWriter(2016, 2021).write_urls_to_json)
     # downloading raw data
+    user_interaction("Download the data files located in urls.json?",
+                     DataDownloader().download_nordpool_data)
     # processing nordpool data
+    user_interaction("Factor the nordpool data into usable format for data engineering?",
+                     NordpoolDataProcessor().combine_nordpool_data)

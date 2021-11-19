@@ -4,7 +4,7 @@ import os
 class DataDeleter:
 
     @staticmethod
-    def clean_directory(path):
+    def clean_directory(path: str):
         """
         Method that cleans up the directory specified in the path
         :param path: the path of the directory
@@ -14,17 +14,15 @@ class DataDeleter:
                 if str(file) != ".gitkeep":
                     os.remove(os.path.join(root, file))
 
-    @staticmethod
-    def clean_data():
+    def clean_data(self):
         """
-        Method that cleans all files in the directories "processed" and "raw"
+        Method that cleans all files in the given directories
         """
-        # TODO might have to use os.path.join for different operating systems
-        data_dirs = ["data/processed", "data/raw"]
+        data_dirs = [os.path.join("data", "raw"), os.path.join("data", "processed")]
         for directory in data_dirs:
-            DataDeleter.clean_directory(directory)
+            self.clean_directory(directory)
 
 
 if __name__ == '__main__':
     os.chdir("..")
-    DataDeleter.clean_data()
+    DataDeleter().clean_data()

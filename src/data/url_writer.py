@@ -1,11 +1,12 @@
+import os
 import json
 
 
 class UrlWriter:
 
     def __init__(self, start_year, end_year):
-        self.start_year = start_year
-        self.end_year = end_year
+        self.__start_year = start_year
+        self.__end_year = end_year
 
     def collect_nordpool_urls(self) -> list:
         """
@@ -18,7 +19,7 @@ class UrlWriter:
         consumption = []
 
         # creating file data
-        for year in range(self.start_year, self.end_year + 1):
+        for year in range(self.__start_year, self.__end_year + 1):
             elspot_prices.append({
                 "url": f"https://www.nordpoolgroup.com/4ab6cc/globalassets/marketdata-excel-files/elspot-prices_{year}_hourly_eur.xls",
                 "filename": f"elspot-prices_{year}_hourly_eur.xls"
@@ -47,10 +48,11 @@ class UrlWriter:
         url_data = {"nordpool": self.collect_nordpool_urls()}
 
         # writing to json
-        with open('urls.json', 'w') as file:
+        with open(os.path.join("data", "urls.json"), 'w') as file:
             json_string = json.dumps(url_data, default=lambda o: o.__dict__, sort_keys=True, indent=2)
             file.write(json_string)
 
 
 if __name__ == '__main__':
+    os.chdir("..")
     UrlWriter(2016, 2021).write_urls_to_json()

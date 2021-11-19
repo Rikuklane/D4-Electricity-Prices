@@ -15,22 +15,23 @@ class NordpoolDataProcessor:
         # variables
         raw_dataframes = {}
         features = []
-        json_path = self.get_file_path("urls.json", folder="")
+        json_path = os.path.join("data", "urls.json")
 
         # getting data from files
         with open(json_path) as json_data:
             # opening json
             url_data = json.load(json_data)
             # looking through each feature in nordpool data in the json
-            for feature_data in url_data["nordpooldata"]:
+            for feature_data in url_data["nordpool"]:
                 # Appending all feature names into a list of features to later search them in the dictionary
                 feature_name = feature_data["feature"]
                 raw_dataframes[feature_name] = []
                 features.append(feature_name)
                 for data_file in feature_data["files"]:
                     # Looking through a file in the feature and appending to the feature dataframe list
-                    df = self.process_files_nordpool(data_file["filename"], feature_name)
+                    df = self.__process_files_nordpool(data_file["filename"], feature_name)
                     raw_dataframes[feature_name].append(df)
+                print(f"Feature {feature_name} factored!")
 
         # concatenating dataframes with same column names
         combined_dataframes = []
@@ -41,9 +42,12 @@ class NordpoolDataProcessor:
         final_df = reduce(lambda df_left, df_right: pd.merge(df_left, df_right, on=["Date", "Hours"], how='outer'),
                           combined_dataframes).fillna(np.nan)
         # writing to file
-        final_df.to_csv(self.get_file_path("nordpool_estonia.csv", folder="processed"), index=False)
+        file_name = "nordpool_estonia.csv"
+        final_df.to_csv(os.path.join("data", "processed", file_name), index=False)
+        print(f"Nordpool data written to file: {file_name}")
 
-    def process_files_nordpool(self, file_name, feature_name) -> pd.DataFrame:
+    @staticmethod
+    def __process_files_nordpool(file_name, feature_name) -> pd.DataFrame:
         """
         A method that processes a nordpool data file in data/raw/ into a dataframe
         :param file_name: the file name in data/raw/
@@ -53,7 +57,7 @@ class NordpoolDataProcessor:
         data = []
 
         # getting the correct path of the file
-        path = self.get_file_path(file_name)
+        path = os.path.join("data", "raw", file_name)
 
         # for getting the header (row of column names) from the HTML file
         list_header = []
@@ -91,19 +95,6 @@ class NordpoolDataProcessor:
             # Because some columns have the same names and part of data is in one column and other part in the other
             return df.groupby(df.columns, axis=1).sum()
         return df
-
-    # TODO this should go and be a utility method
-    @staticmethod
-    def get_file_path(file_name, folder="raw"):
-        """
-        Method to get the needed file path
-        :param file_name: searched file name
-        :param folder: the folder the file is being searched in
-        :return: file path
-        """
-        if folder != "":
-            return os.path.join(os.getcwd(), "data", folder, file_name)
-        return os.path.join(os.getcwd(), "data", file_name)
 
 
 if __name__ == '__main__':

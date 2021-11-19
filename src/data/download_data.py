@@ -22,18 +22,18 @@ class DataDownloader:
         with open(filename, 'wb') as file:
             file.write(response.content)
 
-    @staticmethod
-    def download_nordpool_data():
+    def download_nordpool_data(self):
         """
         A method to download all the data from nordpool using urls.json
         """
         print("fetching data...")
-        with open('urls.json') as json_data:
+        with open(os.path.join('data', 'urls.json')) as json_data:
             url_data = json.load(json_data)
-            for nordpool_data in url_data["nordpooldata"]:
+            for nordpool_data in url_data["nordpool"]:
                 for data_file in nordpool_data["files"]:
-                    DataDownloader.__download_file(data_file["url"], os.path.join("raw", data_file["filename"]))
+                    self.__download_file(data_file["url"], os.path.join("data", "raw", data_file["filename"]))
 
 
 if __name__ == '__main__':
-    DataDownloader.download_nordpool_data()
+    os.chdir("..")
+    DataDownloader().download_nordpool_data()
