@@ -7,7 +7,11 @@ class UrlWriter:
         self.start_year = start_year
         self.end_year = end_year
 
-    def collect_nordpool_urls(self):
+    def collect_nordpool_urls(self) -> list:
+        """
+        Method to collect all the used datafile urls from www.nordpoolgroup.com into urls.json
+        :return: formated data for urls.json
+        """
         # variables
         data = []
         elspot_prices = []
@@ -36,6 +40,9 @@ class UrlWriter:
         return data
 
     def write_urls_to_json(self):
+        """
+        Method to get all the necessary datafile urls for every needed source
+        """
         # getting different url data
         url_data = {"nordpool": self.collect_nordpool_urls()}
 
