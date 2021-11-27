@@ -105,4 +105,5 @@ if __name__ == '__main__':
 
     # TODO THIS BELOW IS HOW DATA FROM NORDPOOL SHOULD BE READ
     #  - might be better if it would be .xlsx file or at least get rid of decimal separator ","
+    #  - change "Hours" format from "00 - 01" to "00:00"
     # processed_df = pd.read_csv(get_file_path("nordpool_estonia.csv", folder="processed"), decimal=",")
