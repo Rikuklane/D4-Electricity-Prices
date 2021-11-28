@@ -14,8 +14,23 @@ Reason: The electricity prices have tripled in recent months.
 Data is fetched from
  - https://www.nordpoolgroup.com/historical-market-data/
  - https://www.ilmateenistus.ee/
+ - https://finance.yahoo.com/
 
-## Goals
+### Goals
  - Analyse Covid-19 impact on electricity prices and consumption
- - Find correlation between different external parameters (CO2, gas price, solar, wind rain intensity) and electricity prices
+ - Find correlation between different external parameters (CO2, gas price, solar, wind, rain intensity) and electricity prices
  - How much money could be saved by applying smart consumption theory
+
+## How To Run The Project
+### Before you can run the project
+ - install Anaconda
+ - make sure you can use `conda` to create an environment
+### Running the project
+First time run
+1. Create the virtual env `conda env create -f environment.yml -n electricity`
+2. Activate the virtual env `activate electricity`
+3. Run index.py (step by step setup)
+
+If environment already exists
+1. Update the dependencies `conda env update -f environment.yml -n sitanikerdis`
+2. Run index.py
