@@ -26,11 +26,11 @@ Data is fetched from
  - install Anaconda
  - make sure you can use `conda` to create an environment
 ### Running the project
-First time run
-1. Create the virtual env `conda env create -f environment.yml -n electricity`
-2. Activate the virtual env `activate electricity`
+First time run (If the environment does not already exist)
+1. Create the virtual env `conda env create -f environment.yml -n D4-Electricity-Prices`
+2. Activate the virtual env `activate D4-Electricity-Prices`
 3. Run index.py (step by step setup)
 
 If environment already exists
-1. Update the dependencies `conda env update -f environment.yml -n sitanikerdis`
+1. Update the dependencies `conda env update -f environment.yml -n D4-Electricity-Prices`
 2. Run index.py
