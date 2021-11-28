@@ -99,7 +99,7 @@ class NordpoolDataProcessor:
 
 if __name__ == '__main__':
     # changing the working directory to src
-    os.chdir("..")
+    os.chdir("../src")
     # running the code
     NordpoolDataProcessor().combine_nordpool_data()
 

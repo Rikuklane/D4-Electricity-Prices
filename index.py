@@ -1,7 +1,7 @@
-from src.data.delete_data import DataDeleter
-from src.data.url_writer import UrlWriter
-from src.data.download_data import DataDownloader
-from src.features.process_nordpool import NordpoolDataProcessor
+from data.delete_data import DataDeleter
+from data.url_writer import UrlWriter
+from data.download_data import DataDownloader
+from features.process_nordpool import NordpoolDataProcessor
 
 
 def user_interaction(question: str, command):

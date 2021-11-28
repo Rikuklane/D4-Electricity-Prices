@@ -35,5 +35,5 @@ class DataDownloader:
 
 
 if __name__ == '__main__':
-    os.chdir("..")
+    os.chdir("../src")
     DataDownloader().download_nordpool_data()

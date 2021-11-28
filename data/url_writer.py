@@ -54,5 +54,5 @@ class UrlWriter:
 
 
 if __name__ == '__main__':
-    os.chdir("..")
+    os.chdir("../src")
     UrlWriter(2016, 2021).write_urls_to_json()
