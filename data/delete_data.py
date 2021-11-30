@@ -24,5 +24,5 @@ class DataDeleter:
 
 
 if __name__ == '__main__':
-    os.chdir("../src")
+    os.chdir("..")
     DataDeleter().clean_data()

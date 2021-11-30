@@ -1,5 +1,6 @@
 import os
 import json
+import locale
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
@@ -12,6 +13,7 @@ class NordpoolDataProcessor:
         """
         Method that combines all nordpool data files in urls.json into one csv file
         """
+        locale.setlocale(locale.LC_NUMERIC, '')
         # variables
         raw_dataframes = {}
         features = []
@@ -36,11 +38,17 @@ class NordpoolDataProcessor:
         # concatenating dataframes with same column names
         combined_dataframes = []
         for i in range(len(features)):
-            combined_dataframes.append(pd.concat(raw_dataframes[features[i]]))
+            feature_df = pd.concat(raw_dataframes[features[i]])
+            if feature_df[features[i]].dtype == object:
+                # making sure the decimal is "."
+                feature_df[features[i]] = feature_df[features[i]].str.replace(',', '.')
+            combined_dataframes.append(feature_df)
+            print(f"All dataframes with feature {features[i]} combined!")
 
         # merging dataframes with different column names
         final_df = reduce(lambda df_left, df_right: pd.merge(df_left, df_right, on=["Date", "Hours"], how='outer'),
                           combined_dataframes).fillna(np.nan)
+        final_df.Hours = final_df.Hours.map(lambda x: str(x)[0:2] + ":00")  # replacing Hour format
         # writing to file
         file_name = "nordpool_estonia.csv"
         final_df.to_csv(os.path.join("data", "processed", file_name), index=False)
@@ -56,12 +64,12 @@ class NordpoolDataProcessor:
         """
         data = []
 
-        # getting the correct path of the file
+        # getting the correct path of the file and opening it open
         path = os.path.join("data", "raw", file_name)
+        soup = BeautifulSoup(open(path), 'html.parser')
 
         # for getting the header (row of column names) from the HTML file
         list_header = []
-        soup = BeautifulSoup(open(path), 'html.parser')
         header = soup.find("table").find("thead").find("tr").findNextSibling().findNextSibling()
 
         # getting each column name
@@ -86,9 +94,8 @@ class NordpoolDataProcessor:
             data.append(row)  # appending the row to the data list
 
         # Storing the data into Pandas DataFrame and filtering out unnecessary columns
-        list_header[0] = "Date"
+        list_header[1] = "Date"
         df = pd.DataFrame(data=data, columns=list_header)
-        df.Hours = df.Hours.str.replace("\\xa0", " ")
         df = df[["Date", "Hours", "EE"]]
         df.rename(columns={"EE": feature_name}, inplace=True)
         if len(df.columns) > 3:
@@ -99,11 +106,6 @@ class NordpoolDataProcessor:
 
 if __name__ == '__main__':
     # changing the working directory to src
-    os.chdir("../src")
+    os.chdir("..")
     # running the code
     NordpoolDataProcessor().combine_nordpool_data()
-
-    # TODO THIS BELOW IS HOW DATA FROM NORDPOOL SHOULD BE READ
-    #  - might be better if it would be .xlsx file or at least get rid of decimal separator ","
-    #  - change "Hours" format from "00 - 01" to "00:00"
-    # processed_df = pd.read_csv(get_file_path("nordpool_estonia.csv", folder="processed"), decimal=",")
