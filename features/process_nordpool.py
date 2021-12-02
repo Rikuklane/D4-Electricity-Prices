@@ -48,6 +48,7 @@ class NordpoolDataProcessor:
         # merging dataframes with different column names
         final_df = reduce(lambda df_left, df_right: pd.merge(df_left, df_right, on=["Date", "Hours"], how='outer'),
                           combined_dataframes).fillna(np.nan)
+        # TODO might actually change to datetime format so only one column would be used (easier to play around with)
         final_df.Hours = final_df.Hours.map(lambda x: str(x)[0:2] + ":00")  # replacing Hour format
         # writing to file
         file_name = "nordpool_estonia.csv"
