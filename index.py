@@ -40,4 +40,4 @@ if __name__ == '__main__':
                      NordpoolDataProcessor().combine_nordpool_data)
     # processing ilmateenistus data
     user_interaction("Factor the ilmateenistus data into usable format for data engineering?",
-                     IlmateenistusProcessor("Tartu-Toravere_2004-2020.xlsx").process_ilmateenistus_data())
+                     IlmateenistusProcessor("Tartu-Toravere_2004-2020.xlsx").process_ilmateenistus_data)
