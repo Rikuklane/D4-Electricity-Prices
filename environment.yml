@@ -1,16 +1,17 @@
 dependencies:
- - python=3.8
+ - python>=3.8
+ - pip
  - numpy
  - scipy
  - scikit-learn
  - jupyter
  - requests
  - click
- - make
  - pandas
  - openpyxl
  - bs4
- - yfinance
  - openpyxl
-# TODO Test and change format to the link below so everything would be installed instead of only some
-#  - https://stackoverflow.com/questions/35245401/combining-conda-environment-yml-with-pip-requirements-txt
+ - pip:
+    # for regular pip packages that conda does not accept
+    - yfinance
+    - make

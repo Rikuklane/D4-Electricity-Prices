@@ -1,7 +1,5 @@
 import os
 import pandas as pd
-import numpy as np
-from datetime import datetime
 
 
 class IlmateenistusProcessor:
@@ -15,17 +13,16 @@ class IlmateenistusProcessor:
                          "10 minuti keskmine tuule suund", "Tunni maksimum tuule kiirus m/s",
                          "Õhurõhk jaama kõrgusel hPa"], inplace=True)
         df = df[df["Aasta"] >= 2013]
-        df.rename(columns={"Õhurõhk merepinna kõrgusel hPa": "Õhurõhk (hPa)",
-                           "10 minuti keskmine tuule kiirus m/s": "Tuule kiirus (m/s)",
-                           "Tunni sademete summa mm": "Sademed (mm)", "Kell (UTC)": "UTC"}, inplace=True)
+        df.rename(columns={"Õhurõhk merepinna kõrgusel hPa": "AirPressure",
+                           "10 minuti keskmine tuule kiirus m/s": "WindSpeed",
+                           "Tunni sademete summa mm": "Precipitation",
+                           "Suhteline õhuniiskus %": "AirHumidity",
+                           "Õhutemperatuur °C": "Temperature",
+                           "Kell (UTC)": "Time", "Aasta": "year", "Kuu": "month", "Päev": "day"}, inplace=True)
 
-        # TODO
-        #  - think what to do with nan values ("Õhurõhk" and "Tuule kiirus")
-        #  - combine Aasta, Kuu, Päev into "Date" in format dd-MM-yyyy
-        #       something that i tried but did not work:
-        #           df["Date"] = df.Aasta + "-" + df.Kuu + "-" + df.Päev + " " + df.UTC
-        #           df.Date = datetime.strptime(df.Date, "%Y-%m-%d %I:%M:%S")
-        print(df)  # remove this when done
+        df['Date'] = pd.to_datetime(df[["day", "month", "year"]])
+        df.drop(columns=["year", "month", "day"], inplace=True)
+
         new_file_name = "ilmateenistus.csv"
         df.to_csv(os.path.join("data", "processed", new_file_name), index=False)
         print(f"Ilmateenistus data written to file: {new_file_name}")

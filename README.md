@@ -16,6 +16,14 @@ Data is fetched from
  - https://www.ilmateenistus.ee/
  - https://finance.yahoo.com/
 
+##### Ilmateenistus
+ - AirPressure (hPa)
+ - Temperature (°C)
+ - Precipitation (mm)
+ - WindSpeed (m/s)
+ - AirHumidity (%)
+ - DateTime (UTC)
+
 ### Goals
  - Analyse Covid-19 impact on electricity prices and consumption
  - Find correlation between different external parameters (CO2, gas price, solar, wind, rain intensity) and electricity prices

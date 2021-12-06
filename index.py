@@ -36,10 +36,8 @@ if __name__ == '__main__':
     user_interaction("Download the data files located in urls.json?",
                      DataDownloader().download_nordpool_data)
     # processing nordpool data
-    # FIXME is mostly done
     user_interaction("Factor the nordpool data into usable format for data engineering?",
                      NordpoolDataProcessor().combine_nordpool_data)
     # processing ilmateenistus data
-    # FIXME this is still halway done
     user_interaction("Factor the ilmateenistus data into usable format for data engineering?",
                      IlmateenistusProcessor("Tartu-Toravere_2004-2020.xlsx").process_ilmateenistus_data())
