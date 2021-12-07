@@ -11,6 +11,9 @@ dependencies:
  - openpyxl
  - bs4
  - openpyxl
+ - jupyter
+ - matplotlib
+ - plotly
  - pip:
     # for regular pip packages that conda does not accept
     - yfinance
