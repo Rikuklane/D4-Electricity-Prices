@@ -39,7 +39,7 @@ Data is fetched from
 ### Running the project
 First time run (If the environment does not already exist)
 1. Create the virtual env `conda env create -f environment.yml -n D4-Electricity-Prices`
-2. Activate the virtual env `activate D4-Electricity-Prices`
+2. Activate the virtual env `conda activate D4-Electricity-Prices`
 3. Run index.py (step by step setup)
 
 If environment already exists
