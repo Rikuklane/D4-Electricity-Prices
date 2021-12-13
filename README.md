@@ -34,6 +34,12 @@ Data is fetched from
  - Dutch Natural Gas Open price (€/MMBTU)
  - Dutch Natural Gas Close price (€/MMBTU)
 
+##### Personal house energy consumption data
+ - Electricity transfer during day (€/kWh)
+ - Electricity transfer during night (€/kWh)
+ - Renewable electricity tax (€/kWh)
+ - Electricity tax (€/kWh)
+
 ### Goals
  - Analyse Covid-19 impact on electricity prices and consumption
  - Find correlation between different external parameters (gas price, wind and rain intensity, temperature, etc.) and electricity prices
