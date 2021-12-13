@@ -41,3 +41,5 @@ if __name__ == '__main__':
     # processing ilmateenistus data
     user_interaction("Factor the ilmateenistus data into usable format for data engineering?",
                      IlmateenistusProcessor("Tartu-Toravere_2004-2020.xlsx").process_ilmateenistus_data)
+
+    print("All actions finished! Program will shutdown.")
