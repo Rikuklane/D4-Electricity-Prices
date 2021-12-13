@@ -26,6 +26,8 @@ Data is fetched from
 
 ##### Nordpool
  - DateTime (UTC+1)
+ - Consumption (MWh for whole country)
+ - Elspot price (€/MWh)
 
 ### Goals
  - Analyse Covid-19 impact on electricity prices and consumption
