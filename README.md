@@ -45,6 +45,9 @@ Data is fetched from
  - Find correlation between different external parameters (gas price, wind and rain intensity, temperature, etc.) and electricity prices
  - How much money could be saved by applying smart consumption theory
 
+### Conclusive video
+ - https://drive.google.com/file/d/1zOT2KRzwgb6-xMc9eGaRi8azr_69LDOR/view?usp=sharing
+
 ## Files
 ```
 /
@@ -68,7 +71,6 @@ Data is fetched from
 │
 ├──  D4_poster.pdf                                       # Conclusive poster about the project
 ├──  D4_report.pdf                                       # CRISP-DM process report
-├──  D4_video.mp4                                        # Short video overview of the project outcomes
 ├──  environment.yml                                     # dependencies
 ├──  index.py                                            # command line interface of the project
 ```
