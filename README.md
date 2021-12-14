@@ -53,7 +53,7 @@ Data is fetched from
 │   ├── raw                                              # contains raw fetched data files
 │   ├── delete_data.py                                   # deletes data from raw and processed directories
 │   ├── download_data.py                                 # downloads data from urls.json sources
-│   ├── url_writer                                       # writes sources urls to urls.json
+│   ├── url_writer.py                                    # writes sources urls to urls.json
 │   └── urls.json                                        # sources urls
 ├── features                                             # contains files for processing raw data
 │   ├── process_ilmateenistus.py                         # processes ilmateenistus dataset
