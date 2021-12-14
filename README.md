@@ -1,4 +1,4 @@
-# D4-Electricity-Prices
+# D4: Correlations between electricity prices and external parameters, electricity demand in Estonia
 ## Project Description
 This project is made for the "Introduction to Data Science" subject as a mandatory project to finish the class successfully.
 
